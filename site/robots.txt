@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kembar.web.id/sitemap.xml

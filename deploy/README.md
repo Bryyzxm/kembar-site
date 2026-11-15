@@ -1,52 +1,49 @@
 # Deploy
 
-Target: Cloudflare Pages, connected to this repo, folder `site`.
+Domain: **kembar.web.id**, registered at PT JC Indonesia (ResellerCamp), expires 2027-11-15.
+Host: Cloudflare Pages, connected to `Bryyzxm/kembar-site`, folder `site`.
 
-## Order of operations
+## 1. Put the domain on Cloudflare
 
-1. **Cloudflare Pages project.** Dashboard → Workers & Pages → Create → Pages → Connect to Git →
-   pick `Bryyzxm/kembar-site`.
-   Build command: none. Output directory: `site`. Root directory: the repo root.
-   Name the project `kembar-site`: `kembar.pages.dev` belongs to another account, and the project name decides the subdomain. The repo name gives you the free one. That URL
-   works immediately, with HTTPS, and needs no domain.
+1. Cloudflare dashboard, Add a site, `kembar.web.id`, Free plan.
+2. Cloudflare shows two nameservers, something like `ada.ns.cloudflare.com` and
+   `bob.ns.cloudflare.com`. Copy both exactly.
+3. At ResellerCamp: the domain, Nameservers, paste both, save.
+4. Wait. Usually minutes, sometimes a few hours. Cloudflare emails you when the zone is active.
 
-2. **Free branded address: `kembar.is-a.dev`.** is-a.dev is a free subdomain service for developers,
-   run on GitHub, and it is on the Public Suffix List. That is why it is credible where a "free .com"
-   is not.
-   - Copy `deploy/is-a-dev.json` into a fork of `is-a-dev/register` as `domains/kembar.json`.
-   - Replace `YOUR-GITHUB-USERNAME` and, if your Pages project is not called `kembar`, the CNAME
-     target.
-   - Open a pull request. Merging takes hours to a day.
-   - Adding the domain in Cloudflare **must be done through the API**, not the dashboard: because
-     is-a.dev is on the Public Suffix List, the dashboard path fails. Use their helper at
-     <https://cf-pages.is-a.dev> or the API endpoint
-     `POST accounts/{id}/pages/projects/{project}/domains`.
+Right now the domain has no nameservers at all, so this is the first thing to do.
 
-3. **Canonical and hreflang.** Once the final URL is known, add to both pages:
+## 2. Create the Pages project
 
-   ```html
-   <link rel="canonical" href="https://URL/">
-   <link rel="alternate" hreflang="en" href="https://URL/">
-   <link rel="alternate" hreflang="id" href="https://URL/id/">
-   ```
+Workers and Pages, Create, Pages, Connect to Git, pick `Bryyzxm/kembar-site`.
 
-   `site/index.html` uses the URL without `/id/`; `site/id/index.html` uses it with `/id/`.
+| Field | Value |
+|---|---|
+| Project name | `kembar-site` |
+| Production branch | `main` |
+| Build command | empty |
+| Root directory | empty |
+| Output directory | `site` |
 
-4. **Waitlist.** Replace `YOUR-BUTTONDOWN-USERNAME` in both pages, then submit a real address and
-   confirm the confirmation email arrives.
+`kembar.pages.dev` is owned by another account, so the project name matters.
 
-## About email on a free subdomain
+## 3. Attach the domain
 
-Buttondown sends from its own verified domain unless you verify a domain of your own with SPF and
-DKIM records. On an is-a.dev subdomain you control only a CNAME, so the confirmation email will come
-from Buttondown, not from `kembar.is-a.dev`. That is fine: deliverability is Buttondown's, not the
-subdomain's. It only becomes worth changing when you want `hello@yourdomain` to be the sender, which
-needs a domain you own.
+In the Pages project, Custom domains, add `kembar.web.id`, then add `www.kembar.web.id`. Because the
+zone is in the same account, Cloudflare creates the records itself.
 
-## Why not a free .com
+Set a redirect rule from `www` to the apex, or the other way round, so both do not serve duplicate
+content.
 
-No registrar gives away `.com`, `.app` or `.co`: the registry charges them roughly $9 to $10 a year
-per domain. A site that advertises this is either registering the domain in its own name, funding it
-from somewhere else, or not registering it at all. Free *subdomains* of a domain someone else runs
-(is-a.dev, eu.org, pages.dev) are a different thing and are safe, because you are not claiming to own
-the domain, only a name under it.
+## 4. Check the waitlist end to end
+
+Submit your own address on the live site and confirm the email from Buttondown arrives. Until that
+happens the form is wired but unproven.
+
+## Notes
+
+- The form posts to `buttondown.com`. Do not switch it to `buttondown.email`: Indonesian ISP DNS
+  resolves that domain to the Kominfo block page, so the form would fail silently for local visitors.
+- `is-a.dev` was ruled out. Their pull request template requires the site to be non-commercial, and
+  this page is the waitlist for a hosted product.
+- Canonical, `hreflang`, `og:url`, `sitemap.xml` and `robots.txt` already use `https://kembar.web.id`.

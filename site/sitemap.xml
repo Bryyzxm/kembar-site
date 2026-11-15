@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://kembar.web.id/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kembar.web.id/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://kembar.web.id/id/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kembar.web.id/"/>
+  </url>
+  <url>
+    <loc>https://kembar.web.id/id/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kembar.web.id/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://kembar.web.id/id/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kembar.web.id/"/>
+  </url>
+</urlset>

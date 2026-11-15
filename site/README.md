@@ -61,25 +61,23 @@ no small text — only the chip, whose text uses `--pink-ink`.
 
 ## Before this goes live
 
-1. **Connect the waitlist.** Create a Buttondown account, then replace `YOUR-BUTTONDOWN-USERNAME`
-   in `site/index.html` and `site/id/index.html` (the form `action` and its `data-connect`
-   attribute). Until it is replaced the form refuses to submit and says so, on purpose — a waitlist
-   that silently loses signups is worse than one that is visibly off.
-2. **Deploy.** Cloudflare Pages → connect the repo → root directory `site` → no build command,
-   output directory `.` (or drag the `site` folder into a direct upload).
-3. **Add the domain**, then add these to both pages with fully qualified URLs — Google ignores
-   relative `hreflang` and the audit fails because of it:
+1. **Deploy.** Cloudflare Pages, project name `kembar-site` (`kembar.pages.dev` belongs to another
+   account). Build command empty, root directory empty, output directory `site`.
+2. **Domain.** `kembar.web.id` lives at PT JC Indonesia (ResellerCamp) and expires 2027-11-15.
+   Point its nameservers at Cloudflare, then add `kembar.web.id` and `www.kembar.web.id` as custom
+   domains on the Pages project. Steps in `deploy/README.md`.
+3. **UTM tags.** Every signup is tagged. The hidden `tag` field is filled from `?utm_source=` on
+   load, so `kembar.web.id/?utm_source=tiktok` lands as `utm:tiktok` in Buttondown. Without a UTM
+   the tag falls back to the referrer host, then `direct`.
 
-   ```html
-   <link rel="canonical" href="https://DOMAIN/">
-   <link rel="alternate" hreflang="en" href="https://DOMAIN/">
-   <link rel="alternate" hreflang="id" href="https://DOMAIN/id/">
-   ```
+Canonical, `hreflang`, `og:url`, `sitemap.xml` and `robots.txt` already point at
+`https://kembar.web.id`. If the domain changes, those five are the only places to edit.
 
-   Use `https://DOMAIN/id/` as canonical on the Indonesian page.
-4. **UTM tags.** Every signup is tagged. The hidden `tag` field is filled from `?utm_source=` on
-   load, so `domain.com/?utm_source=tiktok` lands as `utm:tiktok` in Buttondown. Without a UTM the
-   tag falls back to the referrer host, then `direct`.
+## The waitlist endpoint
+
+The form posts to `https://buttondown.com/api/emails/embed-subscribe/bryyzxm`. Use `buttondown.com`,
+never `buttondown.email`: Indonesian ISP DNS resolves the `.email` domain to the Kominfo block page,
+so a form pointing there silently fails for exactly the audience this page is for.
 
 ## Regenerating the image copies
 
