@@ -133,45 +133,34 @@ nav.nav-pill a:hover {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 92vh;
+  min-height: auto;
+  padding: 0 0 12px;
   overflow: hidden;
   background: var(--ink);
   isolation: isolate;
 }
 
-.hero-bg { position: absolute; inset: 0; z-index: -1; }
-
-.hero-bg img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: cover;
-  object-position: center 24%;
-  opacity: 0.8;
-  filter: blur(18px) saturate(160%) brightness(0.95);
-  transform: scale(1.16);
-}
-
 .hero-glow {
   position: absolute;
   inset: -15%;
+  z-index: 0;
+  pointer-events: none;
   background:
-    radial-gradient(52% 50% at 22% 22%, rgba(5, 147, 198, 0.62), transparent 66%),
-    radial-gradient(46% 54% at 82% 50%, rgba(216, 57, 149, 0.48), transparent 68%);
+    radial-gradient(52% 50% at 18% 18%, rgba(5, 147, 198, 0.40), transparent 66%),
+    radial-gradient(44% 52% at 84% 62%, rgba(216, 57, 149, 0.26), transparent 70%);
 }
 
 .hero-scrim {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(7, 26, 36, 0.62), transparent 26%),
-    radial-gradient(96% 82% at 26% 96%, rgba(7, 26, 36, 0.97) 0%, rgba(7, 26, 36, 0.82) 38%, rgba(7, 26, 36, 0.30) 68%, transparent 100%),
-    linear-gradient(to top, rgba(7, 26, 36, 0.88), transparent 62%);
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(90% 76% at 24% 100%, rgba(7, 26, 36, 0.86) 0%, rgba(7, 26, 36, 0.34) 52%, transparent 100%);
 }
 
 .hero-inner {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -181,7 +170,7 @@ nav.nav-pill a:hover {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
   gap: 48px;
-  align-items: end;
+  align-items: center;
   margin-top: auto;
   padding-top: 64px;
 }
@@ -218,52 +207,56 @@ nav.nav-pill a:hover {
 
 .btn-quiet:hover { background: rgba(252, 255, 255, 0.1); }
 
-.glass {
-  padding: 22px 22px 20px;
-  border-radius: 20px;
-  background: linear-gradient(165deg, rgba(252, 255, 255, 0.2), rgba(252, 255, 255, 0.07));
-  border: 1px solid rgba(252, 255, 255, 0.24);
-  -webkit-backdrop-filter: blur(18px) saturate(130%);
-  backdrop-filter: blur(18px) saturate(130%);
-  box-shadow: 0 26px 60px rgba(2, 10, 16, 0.45);
-}
-
-.glass-eyebrow {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(252, 255, 255, 0.72);
-  margin: 0 0 14px;
-}
-
-.glass-list { margin: 0; padding: 0; }
-
-.glass-list > div {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 9px 0;
-  border-top: 1px solid rgba(252, 255, 255, 0.14);
-}
-
-.glass-list > div:first-child { border-top: 0; }
-
-.glass-list dt { font-size: 14px; font-weight: 600; color: var(--paper); }
-.glass-list dd {
+/* the real edit: the product shot, not a mockup */
+.hero-shot {
   margin: 0;
-  font-size: 13px;
-  color: rgba(252, 255, 255, 0.74);
-  text-align: right;
+  align-self: end;
 }
 
-.glass-foot {
-  margin: 16px 0 0;
-  padding-top: 14px;
-  border-top: 1px solid rgba(252, 255, 255, 0.14);
+.hero-shot .player { position: relative; }
+
+.hero-shot video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(252, 255, 255, 0.18);
+  box-shadow: 0 30px 70px rgba(2, 10, 16, 0.55);
+  background: var(--media);
+}
+
+.player-toggle {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(252, 255, 255, 0.34);
+  background: rgba(7, 26, 36, 0.66);
+  color: var(--paper);
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.player-toggle:hover { background: rgba(7, 26, 36, 0.9); }
+
+.player-toggle svg { width: 13px; height: 13px; fill: currentColor; }
+.player-toggle .i-play { display: none; }
+.player-toggle[data-playing="false"] .i-pause { display: none; }
+.player-toggle[data-playing="false"] .i-play { display: block; }
+
+.hero-shot figcaption {
+  margin: 10px 0 0;
   font-size: 12.5px;
-  color: rgba(252, 255, 255, 0.74);
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 36ch;
 }
 
 .hero-facts {
@@ -638,6 +631,47 @@ p:last-child { margin-bottom: 0; }
 
 .assure li:first-child { border-top: 0; padding-top: 0; }
 
+/* faq */
+
+.faq {
+  border-top: 1px solid var(--line);
+  max-width: 74ch;
+}
+
+.faq details { border-bottom: 1px solid var(--line); }
+
+.faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--sky);
+}
+
+.faq details[open] summary::after { content: "\2212"; }
+
+.faq p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 15.5px;
+  max-width: 66ch;
+}
+
 /* footer */
 
 footer.site {
@@ -663,10 +697,6 @@ footer.site {
 @media (max-width: 860px) {
   nav.nav-pill { display: none; }
 
-  /* the measured-style card repeats what "how it works" already says,
-     and on a phone it pushes the before/after proof two screens down */
-  .glass { display: none; }
-
   .hero,
   .hero-inner { min-height: 0; }
 
@@ -676,6 +706,8 @@ footer.site {
     align-items: start;
     padding-top: 44px;
   }
+
+  .hero-shot { max-width: 300px; margin: 0 auto; }
 
   .hero-facts {
     grid-template-columns: 1fr 1fr;
@@ -703,9 +735,14 @@ footer.site {
 
   .hero h1 { font-size: clamp(2.1rem, 9vw, 2.7rem); }
   .hero-main { padding-top: 26px; }
+  .hero .eyebrow { font-size: 10.5px; letter-spacing: 0.1em; }
 
-  /* both rails repeat facts stated in "what exists today"; on a phone they
-     push the before/after proof past the first screen */
+  /* the proof strips follow the headline; a tall product shot would push them
+     past the first screen, and the strips already show the same frames */
+  .hero-shot { display: none; }
+
+  /* both rails repeat facts stated later; on a phone they push the
+     before/after proof past the first screen */
   .hero-facts { display: none; }
   .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
   .btn-pill, .btn-quiet { width: 100%; text-align: center; }

@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>kembar. Ia mempelajari gayanya, lalu mengedit videomu</title>
-<meta name="description" content="kembar mengukur cara 3–6 video yang kamu suka diedit: tempo, zoom, caption, kartu, dan suara. Lalu ia mengedit video talking-head-mu dengan gaya itu. Gratis dan open source sekarang, dengan versi hosted di daftar tunggu.">
-<meta property="og:title" content="kembar. Ia mempelajari gayanya, lalu mengedit videomu">
-<meta property="og:description" content="Beri ia videomu dan 3–6 referensi. Ia mengedit punyamu dengan gaya itu. Gratis dan open source, versi hosted segera hadir.">
+<title>kembar. Edit yang kelihatan kamu yang bikin</title>
+<meta name="description" content="Satu rekaman panjang masuk. Retake hilang, caption satu kata sekali, dan halaman asli muncul di kata yang menyebutnya. Akses awal dibuka bertahap.">
+<meta property="og:title" content="kembar. Edit yang kelihatan kamu yang bikin">
+<meta property="og:description" content="Satu rekaman panjang masuk. Retake hilang, satu kata per caption, dan halaman asli muncul di kata yang menyebutnya.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="../assets/after-talking-head.jpg">
+<meta property="og:image" content="https://kembar.web.id/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://kembar.web.id/id/">
 <link rel="canonical" href="https://kembar.web.id/id/">
 <link rel="alternate" hreflang="en" href="https://kembar.web.id/">
@@ -16,7 +18,7 @@
 <link rel="alternate" hreflang="x-default" href="https://kembar.web.id/">
 <meta name="theme-color" content="#071A24">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="../assets/hero-bg.jpg">
+<link rel="preload" as="image" href="../assets/hero.jpg" media="(min-width: 561px)">
 <link rel="stylesheet" href="../assets/styles.css">
 <script>
   function setLang(l) {
@@ -29,11 +31,8 @@
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-bg" aria-hidden="true">
-      <img src="../assets/hero-bg.jpg" alt="" width="900" height="1200" fetchpriority="high" decoding="async">
-      <span class="hero-glow"></span>
-      <span class="hero-scrim"></span>
-    </div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
 
     <div class="wrap hero-inner">
       <header class="site">
@@ -42,77 +41,78 @@
         </a>
         <nav class="site nav-pill" aria-label="Utama">
           <a href="#how">Cara kerjanya</a>
-          <a href="#makes">Yang dibuat</a>
-          <a href="#waitlist">Daftar tunggu</a>
+          <a href="#outputs">Yang kembali</a>
+          <a href="#waitlist">Akses awal</a>
         </nav>
         <a class="lang" href="../" hreflang="en" lang="en" onclick="setLang('en')">English</a>
       </header>
 
       <div class="hero-main">
         <div class="hero-copy">
-          <p class="eyebrow">Gratis dan open source sekarang. Versi hosted sedang disiapkan.</p>
-          <h1 id="hero-title">Ia mempelajari gayanya,<br>lalu mengedit <em>punyamu</em>.</h1>
-          <p class="lede">Beri kembar video talking-head-mu dan 3&ndash;6 video yang kamu suka. Ia mengukur tempo, zoom, caption, kartu, dan suaranya, lalu mengedit punyamu dengan cara itu.</p>
+          <p class="eyebrow">Akses awal &middot; untuk kreator talking head</p>
+          <h1 id="hero-title">Edit yang kelihatan<br><em>kamu</em> yang bikin.</h1>
+          <p class="lede">Kirim satu rekaman panjang. kembar membuang retake-nya, memotong sampai ke kata, memberi caption satu kata sekali, dan menaruh halaman aslinya di layar begitu kamu menyebutnya.</p>
           <div class="hero-actions">
-            <a class="btn-pill" href="#waitlist">Gabung daftar tunggu</a>
-            <a class="btn-quiet" href="#how">Lihat cara kerjanya</a>
+            <a class="btn-pill" href="#waitlist">Minta akses awal</a>
+            <a class="btn-quiet" href="#proof">Lihat hasil aslinya</a>
           </div>
         </div>
 
-        <aside class="glass" aria-label="Gaya, hasil ukur">
-          <p class="glass-eyebrow">Gaya, hasil ukur</p>
-          <dl class="glass-list">
-            <div><dt>Tempo</dt><dd>kecepatan potong</dd></div>
-            <div><dt>Zoom</dt><dd>seberapa sering, seberapa dekat</dd></div>
-            <div><dt>Caption</dt><dd>kata per baris</dd></div>
-            <div><dt>Kartu</dt><dd>apa yang muncul di layar</dd></div>
-            <div><dt>Suara</dt><dd>musik di bawah vokal</dd></div>
-          </dl>
-          <p class="glass-foot">Disimpan jadi gaya yang kamu pakai ulang</p>
-        </aside>
+        <figure class="hero-shot">
+          <div class="player">
+            <video id="hero-video" src="../assets/hero.mp4" poster="../assets/hero.jpg" width="640" height="1138"
+                   muted loop playsinline preload="metadata"
+                   aria-label="Edit asli: kartu yang dibuat untuk satu kalimat, halaman yang ditangkap, alur logo, notifikasi, dan counter."></video>
+            <button class="player-toggle" type="button" aria-label="Jeda video" data-playing="true">
+              <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1"/><rect x="9.4" y="2" width="3.6" height="12" rx="1"/></svg>
+              <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.4 2.3 13 8l-8.6 5.7z"/></svg>
+            </button>
+          </div>
+          <figcaption>Dua belas detik dari edit 34 detik yang asli. Semua frame di halaman ini dari edit itu.</figcaption>
+        </figure>
       </div>
 
       <ul class="hero-facts">
         <li>
-          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="3" width="11" height="8" rx="2"/><rect x="3" y="9" width="11" height="8" rx="2"/></svg>
-          <span><b>3&ndash;6 referensi</b><small>satu kreator atau beberapa</small></span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="9" rx="2"/><path d="M7 17h6"/></svg>
+          <span><b>Halaman asli</b><small>ditangkap, bukan stok</small></span>
         </li>
         <li>
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14.5 16 5.5"/></svg>
-          <span><b>Gratis dan MIT</b><small>open source, tanpa biaya lisensi</small></span>
+          <span><b>Satu kata sekali</b><small>caption dipotong per frasa</small></span>
         </li>
         <li>
-          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="9" rx="2"/><path d="M7 17h6"/></svg>
-          <span><b>Mac, Windows, Linux</b><small>di komputermu, bukan punya kami</small></span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="3" width="11" height="8" rx="2"/><rect x="3" y="9" width="11" height="8" rx="2"/></svg>
+          <span><b>Kamu yang setuju</b><small>potongan, kartu, render</small></span>
         </li>
         <li>
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 6 3 10l4 4"/><path d="M13 6l4 4-4 4"/></svg>
-          <span><b>Berjalan di Claude Code</b><small>jendelanya terbuka di browser</small></span>
+          <span><b>Semua bisa dimatikan</b><small>tiap pilihan otomatis punya saklar</small></span>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="proof-band" aria-labelledby="proof-cap">
+  <section class="proof-band" id="proof" aria-label="Sebelum dan sesudah">
     <div class="wrap">
-      <figure class="proof" aria-labelledby="proof-cap">
+      <figure class="proof">
         <div class="strip before">
-          <img src="../assets/before-talking-head.jpg"
-               srcset="../assets/before-talking-head-sm.jpg 720w, ../assets/before-talking-head.jpg 1240w"
+          <img src="../assets/proof-before.jpg"
+               srcset="../assets/proof-before-sm.jpg 720w, ../assets/proof-before.jpg 1240w"
                sizes="(max-width: 1128px) 100vw, 1080px"
                width="1240" height="276" fetchpriority="high" decoding="async"
-               alt="Enam frame dari satu edit. Caption-nya terpotong di tengah frasa dan kartunya melenceng dari yang sedang diucapkan.">
-          <span class="chip">Sebelum</span>
+               alt="Delapan frame rekaman mentah: pembicaranya, plafon, dinding, tanpa caption dan tanpa kartu.">
+          <span class="chip">Rekamannya</span>
         </div>
         <div class="strip after">
-          <img src="../assets/after-talking-head.jpg"
-               srcset="../assets/after-talking-head-sm.jpg 720w, ../assets/after-talking-head.jpg 1240w"
+          <img src="../assets/proof-after.jpg"
+               srcset="../assets/proof-after-sm.jpg 720w, ../assets/proof-after.jpg 1240w"
                sizes="(max-width: 1128px) 100vw, 1080px"
                width="1240" height="276" decoding="async"
-               alt="Enam frame yang sama dengan gaya hasil pelajaran. Frasa utuh sebagai caption, dan halaman yang disebut muncul di layar.">
-          <span class="chip">Sesudah</span>
+               alt="Delapan frame rekaman yang sama setelah diedit: halaman yang ditangkap, alur logo, diagram, toast, dan counter, dengan satu kata per caption.">
+          <span class="chip">Editnya</span>
         </div>
-        <figcaption id="proof-cap">Rekaman dan kata yang sama, dua cara. Di versi sebelum, caption terpotong di tengah frasa. Di versi sesudah, frasanya utuh dan halaman yang disebut muncul di layar.</figcaption>
+        <figcaption>Rekaman yang sama, dua kali. Di atas yang kamu kirim, satu rekaman panjang dengan retake-nya masih ada. Di bawah yang kembali: retake hilang, satu kata per caption, dan halaman yang kamu sebut muncul di layar. Keduanya frame dari edit itu.</figcaption>
       </figure>
     </div>
   </section>
@@ -120,91 +120,118 @@
   <div class="wrap">
     <section id="how" aria-labelledby="how-title">
       <p class="eyebrow">Cara kerjanya</p>
-      <h2 id="how-title">Dua input, tiga persetujuan, satu video.</h2>
-      <p class="section-lede">Tidak ada paywall dan tidak ada antrean. Kamu melihat setiap keputusan dan bisa mengembalikannya.</p>
+      <h2 id="how-title">Satu rekaman masuk. Tiga persetujuan. Satu edit jadi.</h2>
+      <p class="section-lede">Kamu melihat tiap keputusan sebelum terjadi, dan bisa mengembalikan yang mana pun.</p>
       <ol class="steps">
         <li>
           <span class="n">01</span>
-          <h3>Videomu</h3>
-          <p>Ia membuang retake, salah mulai, dan jeda mati lebih dulu. Kamu lihat apa yang dipotong, kata per kata.</p>
+          <h3>Kirim rekamannya</h3>
+          <p>Satu rekaman panjang, retake-nya ikut. Ia mencari salah mulai dan jeda mati dulu, lalu menunjukkan tiap kata yang dibuang.</p>
         </li>
         <li>
           <span class="n">02</span>
-          <h3>3–6 referensi</h3>
-          <p>Satu kreator atau beberapa. Ia mengukur tempo, zoom, caption, kartu, grafik, dan suara. Hasilnya jadi satu gaya yang kamu pakai ulang.</p>
+          <h3>Pilih 3&ndash;6 edit yang kamu suka</h3>
+          <p>Satu kreator atau beberapa. Ia mengukur tempo, irama caption, posisi kartu, dan cara zoom mendarat. Hanya sifat editingnya, bukan klip, suara, atau branding mereka.</p>
         </li>
         <li>
           <span class="n">03</span>
-          <h3>Videomu, dengan gaya itu</h3>
-          <p>Ia merencanakan caption dan zoom sampai ke katanya. Kamu menyetujui stills-nya, lalu render.</p>
+          <h3>Setujui, lalu render</h3>
+          <p>Rencana caption dan kartunya mendarat di kata yang kamu ucapkan. Kamu setujui stills-nya, lalu render.</p>
         </li>
       </ol>
     </section>
 
-    <section id="makes" aria-labelledby="makes-title">
-      <p class="eyebrow">Yang dibuat</p>
-      <h2 id="makes-title">Empat hasil, dan salah satunya kamu simpan sebagai gaya.</h2>
-      <p class="section-lede">Masing-masing butuh jenis input yang berbeda. Tidak satu pun butuh timeline.</p>
+    <section id="outputs" aria-labelledby="outputs-title">
+      <p class="eyebrow">Yang kembali</p>
+      <h2 id="outputs-title">Tiap kalimat dapat visual yang pantas untuknya.</h2>
+      <p class="section-lede">Tidak ada template dan tidak ada stok. Tiap kartu dibuat untuk kalimat di bawahnya.</p>
       <div class="cards">
         <article class="card">
-          <div class="shot"><img src="../assets/after-talking-head.jpg" width="1240" height="276" loading="lazy" decoding="async" alt="Frame dari edit talking-head dengan caption per kata dan halaman yang ditangkap."></div>
+          <div class="shot"><img src="../assets/card-page.jpg" width="1080" height="674" loading="lazy" decoding="async" alt="Halaman GitHub asli yang ditangkap jadi kartu, dengan baris judulnya ditandai kuning."></div>
           <div class="body">
-            <span class="tag">Talking head</span>
-            <h3>Videomu, gayamu</h3>
-            <p>Satu klip plus 3–6 referensi. Kamu dapat edit seperti buatanmu sendiri, tanpa retake.</p>
+            <span class="tag">Halaman asli</span>
+            <h3>Halamannya, ditandai di baris yang tepat</h3>
+            <p>Sebut nama produk dan ia menangkap halamannya, lalu menandai baris yang sedang dibicarakan.</p>
           </div>
         </article>
         <article class="card">
-          <div class="shot"><img src="../assets/product-video.jpg" width="820" height="461" loading="lazy" decoding="async" alt="Frame dari video produk: halaman produk asli yang ditangkap, dengan logonya dan satu caption."></div>
+          <div class="shot"><img src="../assets/card-motion.jpg" width="1080" height="674" loading="lazy" decoding="async" alt="Kartu diagram yang dibuat untuk satu kalimat, memecah satu ide jadi tiga bagian bernama."></div>
           <div class="body">
-            <span class="tag">Video produk</span>
-            <h3>Dari URL website</h3>
-            <p>Tempel URL-nya. Ia bertanya mau menampilkan apa, merekam produk aslinya, lalu memotong launch film dengan musiknya sendiri.</p>
+            <span class="tag">Kartunya</span>
+            <h3>Kartu yang menjelaskan kalimatnya</h3>
+            <p>Pecahan jadi pecahan, daftar jadi daftar, dan tiap bagian mendarat di kata yang memintanya.</p>
           </div>
         </article>
         <article class="card">
-          <div class="shot"><img src="../assets/teardown.jpg" width="820" height="795" loading="lazy" decoding="async" alt="Halaman teardown kreator yang menampilkan tempo, caption, dan struktur videonya beserta buktinya."></div>
+          <div class="shot"><img src="../assets/card-counter.jpg" width="1080" height="674" loading="lazy" decoding="async" alt="Sebuah logo dengan counter yang naik ke angka yang diucapkan pembicara."></div>
           <div class="body">
-            <span class="tag">Teardown</span>
-            <h3>Dari sebuah profil</h3>
-            <p>Tempel profilnya. Kamu dapat angka di balik videonya, seperti tempo, caption, dan struktur, plus satu gaya yang bisa kamu pakai.</p>
+            <span class="tag">Angkanya</span>
+            <h3>Angka jadi counter</h3>
+            <p>Sebut sebuah angka dan ia berhitung sampai ke sana di layar, di rekaman yang sama, tanpa rekam ulang.</p>
           </div>
         </article>
       </div>
-      <p class="fine">Ia juga mengubah video panjang atau podcast jadi shorts. Tempel link-nya, lalu ia mencari klipnya dan mengedit satu per satu.</p>
+      <p class="fine">Caption berjalan satu kata sekali dan dipotong per frasa, jadi tidak ada yang terputus di tengah ide.</p>
     </section>
 
-    <section id="why" aria-labelledby="why-title">
-      <p class="eyebrow">Kenapa beda</p>
-      <h2 id="why-title">Empat hal yang terus salah di kategori ini.</h2>
+    <section id="different" aria-labelledby="different-title">
+      <p class="eyebrow">Yang kami lakukan berbeda</p>
+      <h2 id="different-title">Bagian yang terus salah di kategori ini.</h2>
       <ul class="why">
         <li>
-          <h3>Gayamu, bukan preset</h3>
-          <p>Brand kit dan template memberi satu tampilan untuk semua video. kembar mengukur video yang benar-benar kamu suka, lalu menyimpan hasilnya jadi gaya.</p>
+          <h3>Kamu lihat potongannya sebelum jadi video</h3>
+          <p>Tiap kata yang dibuang terdaftar. Kalau potongannya salah, kamu kembalikan.</p>
         </li>
         <li>
-          <h3>Halaman aslinya, bukan stok</h3>
-          <p>Saat satu kalimat menyebut produk, ia menangkap halaman produk itu dan menaruh logonya di kalimat yang menyebutnya.</p>
+          <h3>Kartu hanya mendarat di tempat yang kamu setujui</h3>
+          <p>Stills-nya datang dulu. Tidak ada yang dirender sebelum kamu bilang ya.</p>
         </li>
         <li>
-          <h3>Kamu setujui tiap langkah</h3>
-          <p>Kamu menyetujui potongannya, tampilannya, dan render-nya. Kalau ada caption atau kartu yang salah, kamu bilang, dan hanya bagian itu yang berubah.</p>
+          <h3>Catatan, bukan render ulang</h3>
+          <p>Bilang yang salah, dan hanya bagian itu yang berubah. Sisanya tetap seperti semula.</p>
         </li>
         <li>
-          <h3>Berjalan di tempat kerjamu</h3>
-          <p>Gratis dan MIT sekarang, di Mac, Windows, dan Linux, di dalam Claude Code. Filenya tetap di komputermu.</p>
+          <h3>Tanpa watermark, tanpa kejutan di akhir</h3>
+          <p>Yang kamu setujui di review persis yang kamu unduh.</p>
         </li>
       </ul>
 
       <div class="panel">
         <div>
-          <h2>Yang sudah ada hari ini.</h2>
-          <p>Editornya gratis dan open source. Ia berjalan di komputermu dan butuh Claude Code plus akun Claude. Setup itu satu-satunya yang menghalangi kamu mendapat videonya. Daftar tunggu ini untuk versi hosted, dengan editor yang sama tanpa setup.</p>
+          <h2>Dibuat untuk rekaman yang sudah kamu ambil.</h2>
+          <p>Kamu tidak butuh studio, timeline, atau kamera kedua. Satu rekaman dan beberapa edit yang kamu suka sudah cukup jadi input. Akses awal dibuka bertahap.</p>
         </div>
         <div class="panel-actions">
-          <a class="btn" href="#waitlist">Gabung daftar tunggu</a>
-          <a class="btn ghost" href="https://github.com/nextwork-projects/ai-video-editor-cooked">Baca source-nya</a>
+          <a class="btn" href="#waitlist">Minta akses awal</a>
+          <a class="btn ghost" href="#faq">Baca jawaban singkatnya</a>
         </div>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <p class="eyebrow">Pertanyaan</p>
+      <h2 id="faq-title">Jawaban singkat.</h2>
+      <div class="faq">
+        <details>
+          <summary>Apakah ia meniru video orang lain?</summary>
+          <p>Tidak. Ia mengukur sifat editingnya: tempo, irama caption, posisi kartu, cara zoom mendarat. Klip, suara, musik, dan branding mereka tidak pernah dipakai.</p>
+        </details>
+        <details>
+          <summary>Apa yang harus aku kirim?</summary>
+          <p>Satu rekaman panjang dan 3&ndash;6 video yang kamu suka. Itu seluruh inputnya.</p>
+        </details>
+        <details>
+          <summary>Kalau ada kartu yang tidak aku suka?</summary>
+          <p>Sebut yang mana. Hanya kartu itu yang berubah, sisanya tetap seperti semula.</p>
+        </details>
+        <details>
+          <summary>Bisa bahasa Indonesia?</summary>
+          <p>Bisa. Indonesia dan Inggris, caption-nya juga.</p>
+        </details>
+        <details>
+          <summary>Kapan akses awalnya dibuka?</summary>
+          <p>Bertahap, dalam kelompok kecil. Kami tidak menjanjikan tanggal sampai bisa menepatinya.</p>
+        </details>
       </div>
     </section>
 
@@ -212,20 +239,21 @@
       <div class="band-inner">
         <div>
           <p class="eyebrow">Akses awal</p>
-          <h2 id="waitlist-title">Jadi kelompok pertama yang tidak perlu setup.</h2>
-          <p class="section-lede">Satu email untuk konfirmasi, satu lagi saat versi hosted dibuka. Kami tidak menjanjikan tanggal sampai versinya benar-benar siap.</p>
+          <h2 id="waitlist-title">Jadi kelompok pertama.</h2>
+          <p class="section-lede">Satu email untuk konfirmasi, satu lagi saat kelompokmu dibuka. Kami tidak menjanjikan tanggal sampai ada.</p>
           <form class="waitlist" method="post" action="https://buttondown.com/api/emails/embed-subscribe/bryyzxm" data-connect="bryyzxm">
             <label class="skip" for="email-band">Alamat email</label>
             <input id="email-band" type="email" name="email" placeholder="kamu@email.com" autocomplete="email" required>
             <input type="hidden" name="tag" value="site-id">
-            <button type="submit">Gabung daftar tunggu</button>
+            <button type="submit">Minta akses awal</button>
           </form>
           <p class="status" id="status-band" role="status" aria-live="polite"></p>
-          <p class="fine">Kami memakai alamatmu hanya untuk memberi kabar saat versinya dibuka, tidak untuk yang lain. Bisa berhenti kapan saja.</p>
+          <p class="fine">Kami memakai alamatmu hanya untuk memberi kabar saat aksesnya dibuka, tidak untuk yang lain. Bisa berhenti kapan saja.</p>
         </div>
         <ul class="assure">
-          <li>Tanpa terminal, tanpa setup, tanpa akun Claude yang harus diatur.</li>
-          <li>Editor yang sama, hasil yang sama dengan versi gratisnya.</li>
+          <li>Satu rekaman masuk, satu edit jadi.</li>
+          <li>Kamu setujui potongan, kartu, dan render-nya.</li>
+          <li>Indonesia dan Inggris, caption-nya juga.</li>
         </ul>
       </div>
     </section>
@@ -235,10 +263,9 @@
 <div class="wrap">
   <footer class="site">
     <div class="foot-grid">
-      <span>kembar. Dibuat oleh <a href="https://nextwork.ai">NextWork</a>. Lisensi MIT, gratis dipakai.</span>
+      <span>kembar. Dibuat oleh <a href="https://nextwork.ai">NextWork</a>.</span>
       <nav aria-label="Footer">
-        <a href="https://github.com/nextwork-projects/ai-video-editor-cooked">GitHub</a>
-        <a href="https://github.com/nextwork-projects/ai-video-editor-cooked/blob/main/README.md">Panduan setup</a>
+        <a href="#waitlist">Akses awal</a>
         <a href="../" hreflang="en" lang="en" onclick="setLang('en')">English</a>
       </nav>
     </div>
@@ -259,32 +286,82 @@
         var input = form.querySelector('input[type="email"]');
         var status = form.nextElementSibling && form.nextElementSibling.classList.contains('status')
           ? form.nextElementSibling
-          : document.getElementById('status-hero');
+          : null;
 
         var connect = form.getAttribute('data-connect');
         if (!connect || connect.indexOf('YOUR-') === 0) {
           event.preventDefault();
-          status.dataset.state = 'error';
-          status.textContent = 'Endpoint daftar tunggu belum dikonfigurasi.';
+          if (status) {
+            status.dataset.state = 'error';
+            status.textContent = 'Daftar akses awal belum dikonfigurasi.';
+          }
           return;
         }
         if (!input.checkValidity()) {
           event.preventDefault();
-          status.dataset.state = 'error';
-          status.textContent = input.value ? 'Itu sepertinya bukan alamat email.' : 'Tulis alamat emailmu dulu.';
+          if (status) {
+            status.dataset.state = 'error';
+            status.textContent = input.value ? 'Itu sepertinya bukan alamat email.' : 'Tulis alamat emailmu dulu.';
+          }
           input.focus();
           return;
         }
-        status.dataset.state = '';
-        status.textContent = 'Membuka Buttondown untuk konfirmasi…';
+        if (status) {
+          status.dataset.state = '';
+          status.textContent = 'Membuka halaman konfirmasi…';
+        }
         form.querySelector('button').disabled = true;
       });
     });
+  })();
+</script>
+<script>
+  (function () {
+    var v = document.getElementById('hero-video');
+    var btn = document.querySelector('.player-toggle');
+    if (!v || !btn) return;
 
-    if (params.get('joined') === '1') {
-      var hero = document.getElementById('status-hero');
-      hero.dataset.state = 'ok';
-      hero.textContent = 'Kamu sudah di daftar. Cek inbox untuk konfirmasi.';
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var enabled = !reduce && v.offsetParent !== null;
+    var autoPaused = false;
+
+    function paint() {
+      var paused = v.paused;
+      btn.dataset.playing = paused ? 'false' : 'true';
+      btn.setAttribute('aria-label', paused ? 'Putar video' : 'Jeda video');
+    }
+
+    btn.addEventListener('click', function () {
+      if (v.paused) {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        v.pause();
+      }
+    });
+
+    v.addEventListener('play', paint);
+    v.addEventListener('pause', paint);
+
+    if (enabled) {
+      var started = v.play();
+      if (started && started.catch) started.catch(function () { paint(); });
+    }
+    paint();
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting && !v.paused) {
+            autoPaused = true;
+            v.pause();
+          } else if (entry.isIntersecting && autoPaused) {
+            autoPaused = false;
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+          }
+        });
+      }, { threshold: 0.25 }).observe(v);
     }
   })();
 </script>

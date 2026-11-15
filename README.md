@@ -5,7 +5,7 @@ framework, no server.
 
 | Path | What it is |
 |---|---|
-| `site/` | The deployable site. Cloudflare Pages output directory is `site`. |
+| `site/` | The deployable site. The Worker serves this folder as static assets. |
 | `brand/` | Mark, lockups, palette and the rules that govern them. |
 | `docs/SPEC.md` | The contract the page is built against. A copy of the working document. |
 | `deploy/` | How it gets published, including the is-a.dev record. |
@@ -15,5 +15,5 @@ mark.
 
 ## Measured
 
-Lighthouse 12, 15 Nov 2026: mobile 98 performance, 100 accessibility, 100 best practices, 100 SEO.
-Desktop 100 across the board. No horizontal scroll at 375 px.
+See `site/README.md`. The page was rewritten on 15 Nov 2026 and has not been re-measured since; the
+numbers recorded there belong to the version before it.

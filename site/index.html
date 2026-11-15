@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>kembar. It learns the edit, then cuts yours</title>
-<meta name="description" content="kembar measures how 3–6 videos you like are edited: pace, zooms, captions, cards and sound. Then it cuts your talking-head video in that style. Free and open source today, with a hosted version on the way.">
-<meta property="og:title" content="kembar. It learns the edit, then cuts yours">
-<meta property="og:description" content="Give it your video and 3–6 references. It edits yours in that style. Free and open source, with the hosted version coming.">
+<title>kembar. The edit that looks like you</title>
+<meta name="description" content="One long take in. kembar cuts the retakes, captions one word at a time, and puts the real page on screen at the word that names it. Early access is open.">
+<meta property="og:title" content="kembar. The edit that looks like you">
+<meta property="og:description" content="One long take in. The retakes gone, one word per caption, and the real page on screen at the word that names it.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/after-talking-head.jpg">
+<meta property="og:image" content="https://kembar.web.id/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://kembar.web.id/">
 <link rel="canonical" href="https://kembar.web.id/">
 <link rel="alternate" hreflang="en" href="https://kembar.web.id/">
@@ -16,7 +18,7 @@
 <link rel="alternate" hreflang="x-default" href="https://kembar.web.id/">
 <meta name="theme-color" content="#071A24">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/hero-bg.jpg">
+<link rel="preload" as="image" href="assets/hero.jpg" media="(min-width: 561px)">
 <link rel="stylesheet" href="assets/styles.css">
 <script>
   function setLang(l) {
@@ -38,11 +40,8 @@
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-bg" aria-hidden="true">
-      <img src="assets/hero-bg.jpg" alt="" width="900" height="1200" fetchpriority="high" decoding="async">
-      <span class="hero-glow"></span>
-      <span class="hero-scrim"></span>
-    </div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
 
     <div class="wrap hero-inner">
       <header class="site">
@@ -51,77 +50,78 @@
         </a>
         <nav class="site nav-pill" aria-label="Main">
           <a href="#how">How it works</a>
-          <a href="#makes">What it makes</a>
-          <a href="#waitlist">Waitlist</a>
+          <a href="#outputs">What comes back</a>
+          <a href="#waitlist">Early access</a>
         </nav>
         <a class="lang" href="id/" hreflang="id" lang="id" onclick="setLang('id')">Bahasa Indonesia</a>
       </header>
 
       <div class="hero-main">
         <div class="hero-copy">
-          <p class="eyebrow">Free and open source today. Hosted version in the works.</p>
-          <h1 id="hero-title">It learns the edit.<br>Then it cuts <em>yours</em>.</h1>
-          <p class="lede">Give kembar your talking-head video and 3&ndash;6 videos you like. It measures their pace, zooms, captions, cards and sound, then edits yours that way.</p>
+          <p class="eyebrow">Early access &middot; for talking-head creators</p>
+          <h1 id="hero-title">The edit that<br>looks like <em>you</em>.</h1>
+          <p class="lede">Send one long take. kembar removes the retakes, cuts to the word, captions it one word at a time, and puts the real page on screen the second you name it.</p>
           <div class="hero-actions">
-            <a class="btn-pill" href="#waitlist">Join the waitlist</a>
-            <a class="btn-quiet" href="#how">See how it works</a>
+            <a class="btn-pill" href="#waitlist">Request early access</a>
+            <a class="btn-quiet" href="#proof">See a real edit</a>
           </div>
         </div>
 
-        <aside class="glass" aria-label="A style, measured">
-          <p class="glass-eyebrow">A style, measured</p>
-          <dl class="glass-list">
-            <div><dt>Pace</dt><dd>cut speed</dd></div>
-            <div><dt>Zooms</dt><dd>how often, how hard</dd></div>
-            <div><dt>Captions</dt><dd>words per line</dd></div>
-            <div><dt>Cards</dt><dd>what goes on screen</dd></div>
-            <div><dt>Sound</dt><dd>music under the voice</dd></div>
-          </dl>
-          <p class="glass-foot">Kept as a style you reuse</p>
-        </aside>
+        <figure class="hero-shot">
+          <div class="player">
+            <video id="hero-video" src="assets/hero.mp4" poster="assets/hero.jpg" width="640" height="1138"
+                   muted loop playsinline preload="metadata"
+                   aria-label="A real edit: a card built for the sentence, the captured page, a logo flow, a notification and a counter."></video>
+            <button class="player-toggle" type="button" aria-label="Pause the video" data-playing="true">
+              <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1"/><rect x="9.4" y="2" width="3.6" height="12" rx="1"/></svg>
+              <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.4 2.3 13 8l-8.6 5.7z"/></svg>
+            </button>
+          </div>
+          <figcaption>Twelve seconds from a real 34-second edit. Every frame on this page comes from that cut.</figcaption>
+        </figure>
       </div>
 
       <ul class="hero-facts">
         <li>
-          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="3" width="11" height="8" rx="2"/><rect x="3" y="9" width="11" height="8" rx="2"/></svg>
-          <span><b>3&ndash;6 references</b><small>one creator or several</small></span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="9" rx="2"/><path d="M7 17h6"/></svg>
+          <span><b>The real page</b><small>captured, never stock</small></span>
         </li>
         <li>
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14.5 16 5.5"/></svg>
-          <span><b>Free and MIT</b><small>open source, no licence fee</small></span>
+          <span><b>One word at a time</b><small>captions cut at the phrase</small></span>
         </li>
         <li>
-          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="9" rx="2"/><path d="M7 17h6"/></svg>
-          <span><b>Mac, Windows, Linux</b><small>your machine, not ours</small></span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="3" width="11" height="8" rx="2"/><rect x="3" y="9" width="11" height="8" rx="2"/></svg>
+          <span><b>Your approval</b><small>the cut, the cards, the render</small></span>
         </li>
         <li>
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 6 3 10l4 4"/><path d="M13 6l4 4-4 4"/></svg>
-          <span><b>Runs in Claude Code</b><small>the window opens in your browser</small></span>
+          <span><b>Every switch is yours</b><small>each automatic choice turns off</small></span>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="proof-band" aria-labelledby="proof-cap">
+  <section class="proof-band" id="proof" aria-label="Before and after">
     <div class="wrap">
-      <figure class="proof" aria-labelledby="proof-cap">
+      <figure class="proof">
         <div class="strip before">
-          <img src="assets/before-talking-head.jpg"
-               srcset="assets/before-talking-head-sm.jpg 720w, assets/before-talking-head.jpg 1240w"
+          <img src="assets/proof-before.jpg"
+               srcset="assets/proof-before-sm.jpg 720w, assets/proof-before.jpg 1240w"
                sizes="(max-width: 1128px) 100vw, 1080px"
                width="1240" height="276" fetchpriority="high" decoding="async"
-               alt="Six frames from one edit. The captions break mid-phrase and the cards drift from what is being said.">
-          <span class="chip">Before</span>
+               alt="Eight frames of the raw take: the speaker, a ceiling, a wall, and no captions or cards.">
+          <span class="chip">The take</span>
         </div>
         <div class="strip after">
-          <img src="assets/after-talking-head.jpg"
-               srcset="assets/after-talking-head-sm.jpg 720w, assets/after-talking-head.jpg 1240w"
+          <img src="assets/proof-after.jpg"
+               srcset="assets/proof-after-sm.jpg 720w, assets/proof-after.jpg 1240w"
                sizes="(max-width: 1128px) 100vw, 1080px"
                width="1240" height="276" decoding="async"
-               alt="The same six frames in a learned style. Whole phrases as captions, and the page being named showing on screen.">
-          <span class="chip">After</span>
+               alt="Eight frames of the same take after editing: a captured page, a logo flow, a diagram, a toast and a counter, one word per caption.">
+          <span class="chip">The edit</span>
         </div>
-        <figcaption id="proof-cap">The same take and the same words, two ways. Before, the caption breaks mid-phrase. After, the phrase is whole and the page being named is on screen.</figcaption>
+        <figcaption>The same take, twice. Above is what you send, one long recording with the retakes still in it. Below is what comes back: the retakes gone, one word per caption, and the page you named on screen. Both strips are frames from that edit.</figcaption>
       </figure>
     </div>
   </section>
@@ -129,91 +129,118 @@
   <div class="wrap">
     <section id="how" aria-labelledby="how-title">
       <p class="eyebrow">How it works</p>
-      <h2 id="how-title">Two inputs, three approvals, one video.</h2>
-      <p class="section-lede">Nothing happens behind a paywall or a queue. You watch each decision and can send it back.</p>
+      <h2 id="how-title">One take in. Three approvals. One finished edit.</h2>
+      <p class="section-lede">You see each decision before it happens, and you can send any of them back.</p>
       <ol class="steps">
         <li>
           <span class="n">01</span>
-          <h3>Your video</h3>
-          <p>It removes retakes, false starts and dead air first. You see what was cut, word by word.</p>
+          <h3>Send the take</h3>
+          <p>One long recording, retakes and all. It finds the false starts and the dead air first, then shows you every word it removed.</p>
         </li>
         <li>
           <span class="n">02</span>
-          <h3>3–6 references</h3>
-          <p>One creator or several. It measures pace, zooms, captions, cards, graphics and sound. The result is a style you reuse.</p>
+          <h3>Pick 3&ndash;6 edits you like</h3>
+          <p>One creator or several. It measures pace, caption rhythm, where a card sits and how a zoom lands. Abstract traits only, never their clips, their voice or their branding.</p>
         </li>
         <li>
           <span class="n">03</span>
-          <h3>Your video, in that style</h3>
-          <p>It plans captions and zooms down to the word. You approve the stills, then render.</p>
+          <h3>Approve, then render</h3>
+          <p>The caption plan and the cards land on the words you said. You approve the stills, then the render.</p>
         </li>
       </ol>
     </section>
 
-    <section id="makes" aria-labelledby="makes-title">
-      <p class="eyebrow">What it makes</p>
-      <h2 id="makes-title">Four outputs, and one of them you keep as a style.</h2>
-      <p class="section-lede">Each one starts from a different kind of input. None of them needs a timeline.</p>
+    <section id="outputs" aria-labelledby="outputs-title">
+      <p class="eyebrow">What comes back</p>
+      <h2 id="outputs-title">Every line gets the visual it earns.</h2>
+      <p class="section-lede">Nothing here is a template and nothing is stock. Each card is built for the sentence under it.</p>
       <div class="cards">
         <article class="card">
-          <div class="shot"><img src="assets/after-talking-head.jpg" width="1240" height="276" loading="lazy" decoding="async" alt="Frames from a talking-head edit with word captions and a captured page."></div>
+          <div class="shot"><img src="assets/card-page.jpg" width="1080" height="674" loading="lazy" decoding="async" alt="A real GitHub page captured as a card, with the title line marked in yellow."></div>
           <div class="body">
-            <span class="tag">Talking head</span>
-            <h3>Your video, your style</h3>
-            <p>A clip plus 3–6 references. The edit you would have made, with the retakes gone.</p>
+            <span class="tag">The real page</span>
+            <h3>The page, marked at the line</h3>
+            <p>Name a product and it captures that page, then marks the exact line it is talking about.</p>
           </div>
         </article>
         <article class="card">
-          <div class="shot"><img src="assets/product-video.jpg" width="820" height="461" loading="lazy" decoding="async" alt="A frame from a product video: the real product page captured, with its logo and a caption."></div>
+          <div class="shot"><img src="assets/card-motion.jpg" width="1080" height="674" loading="lazy" decoding="async" alt="A diagram card built for one sentence, splitting one idea into three named parts."></div>
           <div class="body">
-            <span class="tag">Product video</span>
-            <h3>From a website URL</h3>
-            <p>Paste the URL. It asks what to show, records the real product, and cuts a launch film with its own music.</p>
+            <span class="tag">The card</span>
+            <h3>A card that explains the sentence</h3>
+            <p>A split becomes a split, a list becomes a list, and each piece lands on the word that asked for it.</p>
           </div>
         </article>
         <article class="card">
-          <div class="shot"><img src="assets/teardown.jpg" width="820" height="795" loading="lazy" decoding="async" alt="A creator teardown page showing measured pacing, captions and structure with evidence."></div>
+          <div class="shot"><img src="assets/card-counter.jpg" width="1080" height="674" loading="lazy" decoding="async" alt="A logo with a counter climbing to the number the speaker said."></div>
           <div class="body">
-            <span class="tag">Teardown</span>
-            <h3>From a profile</h3>
-            <p>Paste a profile. You get the numbers behind their videos, such as pace, captions and structure, plus a style you can use on your own.</p>
+            <span class="tag">The number</span>
+            <h3>A number becomes a counter</h3>
+            <p>Say a figure and it counts to it on screen, in the same take, with no second recording.</p>
           </div>
         </article>
       </div>
-      <p class="fine">It also turns a long video or podcast into shorts. Paste the link and it finds the clips and edits each one.</p>
+      <p class="fine">Captions run one word at a time and cut at the phrase, so nothing breaks in the middle of an idea.</p>
     </section>
 
-    <section id="why" aria-labelledby="why-title">
-      <p class="eyebrow">Why it is different</p>
-      <h2 id="why-title">Four things the category keeps getting wrong.</h2>
+    <section id="different" aria-labelledby="different-title">
+      <p class="eyebrow">What we do differently</p>
+      <h2 id="different-title">The parts this category keeps getting wrong.</h2>
       <ul class="why">
         <li>
-          <h3>Your style, not a preset</h3>
-          <p>Brand kits and templates give you one look for every video. kembar measures the videos you actually like and keeps the result as a style.</p>
+          <h3>You see the cut before it is a video</h3>
+          <p>Every removed word is listed. If a cut is wrong, you put it back.</p>
         </li>
         <li>
-          <h3>The real page, not stock footage</h3>
-          <p>When a line names a product, it captures that product's page and puts its logo on the line that said it.</p>
+          <h3>Cards land only where you approved them</h3>
+          <p>The stills come first. Nothing renders until you say yes to them.</p>
         </li>
         <li>
-          <h3>You approve each step</h3>
-          <p>You approve the cut, the look and the render. If a caption or a card is wrong, you say so and only that part changes.</p>
+          <h3>Notes, not re-runs</h3>
+          <p>Say what is wrong and only that part changes. The rest of the edit stays exactly as it was.</p>
         </li>
         <li>
-          <h3>Runs where you work</h3>
-          <p>Free and MIT today, on Mac, Windows and Linux, inside Claude Code. The files stay on your machine.</p>
+          <h3>No watermark, no surprise at the end</h3>
+          <p>What you approve in review is exactly what you download.</p>
         </li>
       </ul>
 
       <div class="panel">
         <div>
-          <h2 id="status-title">What exists today.</h2>
-          <p>The editor is free and open source. It runs on your computer and needs Claude Code plus a Claude account. That setup is the only thing between you and a video. The waitlist is for the hosted version, which is the same editor without the setup.</p>
+          <h2>Built for the take you already recorded.</h2>
+          <p>You do not need a studio, a timeline or a second camera. One take and a handful of edits you like is the whole input. Early access opens in small groups.</p>
         </div>
         <div class="panel-actions">
-          <a class="btn" href="#waitlist">Join the waitlist</a>
-          <a class="btn ghost" href="https://github.com/nextwork-projects/ai-video-editor-cooked">Read the source</a>
+          <a class="btn" href="#waitlist">Request early access</a>
+          <a class="btn ghost" href="#faq">Read the short answers</a>
         </div>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <p class="eyebrow">Questions</p>
+      <h2 id="faq-title">Short answers.</h2>
+      <div class="faq">
+        <details>
+          <summary>Does it copy someone else&rsquo;s video?</summary>
+          <p>No. It measures abstract traits: pace, caption rhythm, where a card sits, how a zoom lands. It never uses their clips, their voice, their music or their branding.</p>
+        </details>
+        <details>
+          <summary>What do I have to send?</summary>
+          <p>One long take and 3&ndash;6 videos you like. That is the whole input.</p>
+        </details>
+        <details>
+          <summary>What if I do not like a card?</summary>
+          <p>Say which one. Only that card changes, and the rest of the edit stays as it was.</p>
+        </details>
+        <details>
+          <summary>Does it work in Indonesian?</summary>
+          <p>Yes. Indonesian and English, captions included.</p>
+        </details>
+        <details>
+          <summary>When does early access open?</summary>
+          <p>In small groups. We will not promise a date until we can keep it.</p>
+        </details>
       </div>
     </section>
 
@@ -221,20 +248,21 @@
       <div class="band-inner">
         <div>
           <p class="eyebrow">Early access</p>
-          <h2 id="waitlist-title">Be in the first group that skips the setup.</h2>
-          <p class="section-lede">One email to confirm, one when the hosted version opens. We will not promise a date until there is one.</p>
+          <h2 id="waitlist-title">Be in the first group.</h2>
+          <p class="section-lede">One email to confirm, one when your group opens. We will not promise a date until there is one.</p>
           <form class="waitlist" method="post" action="https://buttondown.com/api/emails/embed-subscribe/bryyzxm" data-connect="bryyzxm">
             <label class="skip" for="email-band">Email address</label>
             <input id="email-band" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
             <input type="hidden" name="tag" value="site">
-            <button type="submit">Join the waitlist</button>
+            <button type="submit">Request early access</button>
           </form>
           <p class="status" id="status-band" role="status" aria-live="polite"></p>
           <p class="fine">We use your address only to tell you when it opens, and nothing else. Unsubscribe any time.</p>
         </div>
         <ul class="assure">
-          <li>No terminal, no setup, no Claude account to configure.</li>
-          <li>The same editor and the same output as the free version.</li>
+          <li>One take in, one finished edit out.</li>
+          <li>You approve the cut, the cards and the render.</li>
+          <li>Indonesian and English, captions included.</li>
         </ul>
       </div>
     </section>
@@ -244,10 +272,9 @@
 <div class="wrap">
   <footer class="site">
     <div class="foot-grid">
-      <span>kembar. Made by <a href="https://nextwork.ai">NextWork</a>. MIT licence, free to use.</span>
+      <span>kembar. Made by <a href="https://nextwork.ai">NextWork</a>.</span>
       <nav aria-label="Footer">
-        <a href="https://github.com/nextwork-projects/ai-video-editor-cooked">GitHub</a>
-        <a href="https://github.com/nextwork-projects/ai-video-editor-cooked/blob/main/README.md">Setup guide</a>
+        <a href="#waitlist">Early access</a>
         <a href="id/" hreflang="id" lang="id" onclick="setLang('id')">Bahasa Indonesia</a>
       </nav>
     </div>
@@ -268,32 +295,82 @@
         var input = form.querySelector('input[type="email"]');
         var status = form.nextElementSibling && form.nextElementSibling.classList.contains('status')
           ? form.nextElementSibling
-          : document.getElementById('status-hero');
+          : null;
 
         var connect = form.getAttribute('data-connect');
         if (!connect || connect.indexOf('YOUR-') === 0) {
           event.preventDefault();
-          status.dataset.state = 'error';
-          status.textContent = 'The waitlist endpoint is not configured.';
+          if (status) {
+            status.dataset.state = 'error';
+            status.textContent = 'The early access list is not configured yet.';
+          }
           return;
         }
         if (!input.checkValidity()) {
           event.preventDefault();
-          status.dataset.state = 'error';
-          status.textContent = input.value ? 'That does not look like an email address.' : 'Type your email address first.';
+          if (status) {
+            status.dataset.state = 'error';
+            status.textContent = input.value ? 'That does not look like an email address.' : 'Type your email address first.';
+          }
           input.focus();
           return;
         }
-        status.dataset.state = '';
-        status.textContent = 'Opening Buttondown to confirm…';
+        if (status) {
+          status.dataset.state = '';
+          status.textContent = 'Opening the confirmation page…';
+        }
         form.querySelector('button').disabled = true;
       });
     });
+  })();
+</script>
+<script>
+  (function () {
+    var v = document.getElementById('hero-video');
+    var btn = document.querySelector('.player-toggle');
+    if (!v || !btn) return;
 
-    if (params.get('joined') === '1') {
-      var hero = document.getElementById('status-hero');
-      hero.dataset.state = 'ok';
-      hero.textContent = 'You are on the list. Check your inbox to confirm.';
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var enabled = !reduce && v.offsetParent !== null;
+    var autoPaused = false;
+
+    function paint() {
+      var paused = v.paused;
+      btn.dataset.playing = paused ? 'false' : 'true';
+      btn.setAttribute('aria-label', paused ? 'Play the video' : 'Pause the video');
+    }
+
+    btn.addEventListener('click', function () {
+      if (v.paused) {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        v.pause();
+      }
+    });
+
+    v.addEventListener('play', paint);
+    v.addEventListener('pause', paint);
+
+    if (enabled) {
+      var started = v.play();
+      if (started && started.catch) started.catch(function () { paint(); });
+    }
+    paint();
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting && !v.paused) {
+            autoPaused = true;
+            v.pause();
+          } else if (entry.isIntersecting && autoPaused) {
+            autoPaused = false;
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+          }
+        });
+      }, { threshold: 0.25 }).observe(v);
     }
   })();
 </script>
