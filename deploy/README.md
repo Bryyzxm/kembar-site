@@ -7,7 +7,7 @@ Target: Cloudflare Pages, connected to this repo, folder `site`.
 1. **Cloudflare Pages project.** Dashboard → Workers & Pages → Create → Pages → Connect to Git →
    pick `Bryyzxm/kembar-site`.
    Build command: none. Output directory: `site`. Root directory: the repo root.
-   The first deploy gives you `kembar.pages.dev` (or whatever project name you choose). That URL
+   Name the project `kembar-site`: `kembar.pages.dev` belongs to another account, and the project name decides the subdomain. The repo name gives you the free one. That URL
    works immediately, with HTTPS, and needs no domain.
 
 2. **Free branded address: `kembar.is-a.dev`.** is-a.dev is a free subdomain service for developers,
