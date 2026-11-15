@@ -61,8 +61,8 @@ no small text — only the chip, whose text uses `--pink-ink`.
 
 ## Before this goes live
 
-1. **Deploy.** Cloudflare Pages, project name `kembar-site` (`kembar.pages.dev` belongs to another
-   account). Build command empty, root directory empty, output directory `site`.
+1. **Deploy.** A Cloudflare Worker named `kembar`, connected to this repo, serving `site/` as static
+   assets. Not a Pages project; the Worker path is what is wired up.
 2. **Domain.** `kembar.web.id` lives at PT JC Indonesia (ResellerCamp) and expires 2027-11-15.
    Point its nameservers at Cloudflare, then add `kembar.web.id` and `www.kembar.web.id` as custom
    domains on the Pages project. Steps in `deploy/README.md`.
