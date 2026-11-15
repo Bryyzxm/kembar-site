@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kembar. Ia mempelajari gayanya, lalu mengedit videomu</title>
+<meta name="description" content="kembar mengukur cara 3–6 video yang kamu suka diedit: tempo, zoom, caption, kartu, dan suara. Lalu ia mengedit video talking-head-mu dengan gaya itu. Gratis dan open source sekarang, dengan versi hosted di daftar tunggu.">
+<meta property="og:title" content="kembar. Ia mempelajari gayanya, lalu mengedit videomu">
+<meta property="og:description" content="Beri ia videomu dan 3–6 referensi. Ia mengedit punyamu dengan gaya itu. Gratis dan open source, versi hosted segera hadir.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/after-talking-head.jpg">
+<meta name="theme-color" content="#071A24">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="../assets/hero-bg.jpg">
+<link rel="stylesheet" href="../assets/styles.css">
+<script>
+  function setLang(l) {
+    try { document.cookie = 'kembar_lang=' + l + ';path=/;max-age=31536000;samesite=lax'; } catch (e) {}
+  }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Lewati ke isi</a>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="../assets/hero-bg.jpg" alt="" width="900" height="1200" fetchpriority="high" decoding="async">
+      <span class="hero-glow"></span>
+      <span class="hero-scrim"></span>
+    </div>
+
+    <div class="wrap hero-inner">
+      <header class="site">
+        <a class="brand" href="./">
+          <img src="../assets/lockup-dark.svg" alt="kembar" width="130" height="34">
+        </a>
+        <nav class="site nav-pill" aria-label="Utama">
+          <a href="#how">Cara kerjanya</a>
+          <a href="#makes">Yang dibuat</a>
+          <a href="#waitlist">Daftar tunggu</a>
+        </nav>
+        <a class="lang" href="../" hreflang="en" lang="en" onclick="setLang('en')">English</a>
+      </header>
+
+      <div class="hero-main">
+        <div class="hero-copy">
+          <p class="eyebrow">Gratis dan open source sekarang. Versi hosted sedang disiapkan.</p>
+          <h1 id="hero-title">Ia mempelajari gayanya,<br>lalu mengedit <em>punyamu</em>.</h1>
+          <p class="lede">Beri kembar video talking-head-mu dan 3&ndash;6 video yang kamu suka. Ia mengukur tempo, zoom, caption, kartu, dan suaranya, lalu mengedit punyamu dengan cara itu.</p>
+          <div class="hero-actions">
+            <a class="btn-pill" href="#waitlist">Gabung daftar tunggu</a>
+            <a class="btn-quiet" href="#how">Lihat cara kerjanya</a>
+          </div>
+        </div>
+
+        <aside class="glass" aria-label="Gaya, hasil ukur">
+          <p class="glass-eyebrow">Gaya, hasil ukur</p>
+          <dl class="glass-list">
+            <div><dt>Tempo</dt><dd>kecepatan potong</dd></div>
+            <div><dt>Zoom</dt><dd>seberapa sering, seberapa dekat</dd></div>
+            <div><dt>Caption</dt><dd>kata per baris</dd></div>
+            <div><dt>Kartu</dt><dd>apa yang muncul di layar</dd></div>
+            <div><dt>Suara</dt><dd>musik di bawah vokal</dd></div>
+          </dl>
+          <p class="glass-foot">Disimpan jadi gaya yang kamu pakai ulang</p>
+        </aside>
+      </div>
+
+      <ul class="hero-facts">
+        <li>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="3" width="11" height="8" rx="2"/><rect x="3" y="9" width="11" height="8" rx="2"/></svg>
+          <span><b>3&ndash;6 referensi</b><small>satu kreator atau beberapa</small></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14.5 16 5.5"/></svg>
+          <span><b>Gratis dan MIT</b><small>open source, tanpa biaya lisensi</small></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="9" rx="2"/><path d="M7 17h6"/></svg>
+          <span><b>Mac, Windows, Linux</b><small>di komputermu, bukan punya kami</small></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 6 3 10l4 4"/><path d="M13 6l4 4-4 4"/></svg>
+          <span><b>Berjalan di Claude Code</b><small>jendelanya terbuka di browser</small></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="proof-band" aria-labelledby="proof-cap">
+    <div class="wrap">
+      <figure class="proof" aria-labelledby="proof-cap">
+        <div class="strip before">
+          <img src="../assets/before-talking-head.jpg"
+               srcset="../assets/before-talking-head-sm.jpg 720w, ../assets/before-talking-head.jpg 1240w"
+               sizes="(max-width: 1128px) 100vw, 1080px"
+               width="1240" height="276" fetchpriority="high" decoding="async"
+               alt="Enam frame dari satu edit. Caption-nya terpotong di tengah frasa dan kartunya melenceng dari yang sedang diucapkan.">
+          <span class="chip">Sebelum</span>
+        </div>
+        <div class="strip after">
+          <img src="../assets/after-talking-head.jpg"
+               srcset="../assets/after-talking-head-sm.jpg 720w, ../assets/after-talking-head.jpg 1240w"
+               sizes="(max-width: 1128px) 100vw, 1080px"
+               width="1240" height="276" decoding="async"
+               alt="Enam frame yang sama dengan gaya hasil pelajaran. Frasa utuh sebagai caption, dan halaman yang disebut muncul di layar.">
+          <span class="chip">Sesudah</span>
+        </div>
+        <figcaption id="proof-cap">Rekaman dan kata yang sama, dua cara. Di versi sebelum, caption terpotong di tengah frasa. Di versi sesudah, frasanya utuh dan halaman yang disebut muncul di layar.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section id="how" aria-labelledby="how-title">
+      <p class="eyebrow">Cara kerjanya</p>
+      <h2 id="how-title">Dua input, tiga persetujuan, satu video.</h2>
+      <p class="section-lede">Tidak ada paywall dan tidak ada antrean. Kamu melihat setiap keputusan dan bisa mengembalikannya.</p>
+      <ol class="steps">
+        <li>
+          <span class="n">01</span>
+          <h3>Videomu</h3>
+          <p>Ia membuang retake, salah mulai, dan jeda mati lebih dulu. Kamu lihat apa yang dipotong, kata per kata.</p>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <h3>3–6 referensi</h3>
+          <p>Satu kreator atau beberapa. Ia mengukur tempo, zoom, caption, kartu, grafik, dan suara. Hasilnya jadi satu gaya yang kamu pakai ulang.</p>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <h3>Videomu, dengan gaya itu</h3>
+          <p>Ia merencanakan caption dan zoom sampai ke katanya. Kamu menyetujui stills-nya, lalu render.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="makes" aria-labelledby="makes-title">
+      <p class="eyebrow">Yang dibuat</p>
+      <h2 id="makes-title">Empat hasil, dan salah satunya kamu simpan sebagai gaya.</h2>
+      <p class="section-lede">Masing-masing butuh jenis input yang berbeda. Tidak satu pun butuh timeline.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="shot"><img src="../assets/after-talking-head.jpg" width="1240" height="276" loading="lazy" decoding="async" alt="Frame dari edit talking-head dengan caption per kata dan halaman yang ditangkap."></div>
+          <div class="body">
+            <span class="tag">Talking head</span>
+            <h3>Videomu, gayamu</h3>
+            <p>Satu klip plus 3–6 referensi. Kamu dapat edit seperti buatanmu sendiri, tanpa retake.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="shot"><img src="../assets/product-video.jpg" width="820" height="461" loading="lazy" decoding="async" alt="Frame dari video produk: halaman produk asli yang ditangkap, dengan logonya dan satu caption."></div>
+          <div class="body">
+            <span class="tag">Video produk</span>
+            <h3>Dari URL website</h3>
+            <p>Tempel URL-nya. Ia bertanya mau menampilkan apa, merekam produk aslinya, lalu memotong launch film dengan musiknya sendiri.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="shot"><img src="../assets/teardown.jpg" width="820" height="795" loading="lazy" decoding="async" alt="Halaman teardown kreator yang menampilkan tempo, caption, dan struktur videonya beserta buktinya."></div>
+          <div class="body">
+            <span class="tag">Teardown</span>
+            <h3>Dari sebuah profil</h3>
+            <p>Tempel profilnya. Kamu dapat angka di balik videonya, seperti tempo, caption, dan struktur, plus satu gaya yang bisa kamu pakai.</p>
+          </div>
+        </article>
+      </div>
+      <p class="fine">Ia juga mengubah video panjang atau podcast jadi shorts. Tempel link-nya, lalu ia mencari klipnya dan mengedit satu per satu.</p>
+    </section>
+
+    <section id="why" aria-labelledby="why-title">
+      <p class="eyebrow">Kenapa beda</p>
+      <h2 id="why-title">Empat hal yang terus salah di kategori ini.</h2>
+      <ul class="why">
+        <li>
+          <h3>Gayamu, bukan preset</h3>
+          <p>Brand kit dan template memberi satu tampilan untuk semua video. kembar mengukur video yang benar-benar kamu suka, lalu menyimpan hasilnya jadi gaya.</p>
+        </li>
+        <li>
+          <h3>Halaman aslinya, bukan stok</h3>
+          <p>Saat satu kalimat menyebut produk, ia menangkap halaman produk itu dan menaruh logonya di kalimat yang menyebutnya.</p>
+        </li>
+        <li>
+          <h3>Kamu setujui tiap langkah</h3>
+          <p>Kamu menyetujui potongannya, tampilannya, dan render-nya. Kalau ada caption atau kartu yang salah, kamu bilang, dan hanya bagian itu yang berubah.</p>
+        </li>
+        <li>
+          <h3>Berjalan di tempat kerjamu</h3>
+          <p>Gratis dan MIT sekarang, di Mac, Windows, dan Linux, di dalam Claude Code. Filenya tetap di komputermu.</p>
+        </li>
+      </ul>
+
+      <div class="panel">
+        <div>
+          <h2>Yang sudah ada hari ini.</h2>
+          <p>Editornya gratis dan open source. Ia berjalan di komputermu dan butuh Claude Code plus akun Claude. Setup itu satu-satunya yang menghalangi kamu mendapat videonya. Daftar tunggu ini untuk versi hosted, dengan editor yang sama tanpa setup.</p>
+        </div>
+        <div class="panel-actions">
+          <a class="btn" href="#waitlist">Gabung daftar tunggu</a>
+          <a class="btn ghost" href="https://github.com/nextwork-projects/ai-video-editor-cooked">Baca source-nya</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="waitlist" aria-labelledby="waitlist-title">
+      <div class="band-inner">
+        <div>
+          <p class="eyebrow">Akses awal</p>
+          <h2 id="waitlist-title">Jadi kelompok pertama yang tidak perlu setup.</h2>
+          <p class="section-lede">Satu email untuk konfirmasi, satu lagi saat versi hosted dibuka. Kami tidak menjanjikan tanggal sampai versinya benar-benar siap.</p>
+          <form class="waitlist" method="post" action="https://buttondown.com/api/emails/embed-subscribe/bryyzxm" data-connect="bryyzxm">
+            <label class="skip" for="email-band">Alamat email</label>
+            <input id="email-band" type="email" name="email" placeholder="kamu@email.com" autocomplete="email" required>
+            <input type="hidden" name="tag" value="site-id">
+            <button type="submit">Gabung daftar tunggu</button>
+          </form>
+          <p class="status" id="status-band" role="status" aria-live="polite"></p>
+          <p class="fine">Kami memakai alamatmu hanya untuk memberi kabar saat versinya dibuka, tidak untuk yang lain. Bisa berhenti kapan saja.</p>
+        </div>
+        <ul class="assure">
+          <li>Tanpa terminal, tanpa setup, tanpa akun Claude yang harus diatur.</li>
+          <li>Editor yang sama, hasil yang sama dengan versi gratisnya.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="wrap">
+  <footer class="site">
+    <div class="foot-grid">
+      <span>kembar. Dibuat oleh <a href="https://nextwork.ai">NextWork</a>. Lisensi MIT, gratis dipakai.</span>
+      <nav aria-label="Footer">
+        <a href="https://github.com/nextwork-projects/ai-video-editor-cooked">GitHub</a>
+        <a href="https://github.com/nextwork-projects/ai-video-editor-cooked/blob/main/README.md">Panduan setup</a>
+        <a href="../" hreflang="en" lang="en" onclick="setLang('en')">English</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    var source = params.get('utm_source');
+    var ref = source ? 'utm:' + source : (document.referrer ? 'ref:' + new URL(document.referrer).hostname : 'direct');
+
+    document.querySelectorAll('form.waitlist').forEach(function (form) {
+      var tag = form.querySelector('input[name="tag"]');
+      if (tag) tag.value = (ref.indexOf('direct') === 0 ? 'site-id' : 'site-id-' + ref).slice(0, 100);
+
+      form.addEventListener('submit', function (event) {
+        var input = form.querySelector('input[type="email"]');
+        var status = form.nextElementSibling && form.nextElementSibling.classList.contains('status')
+          ? form.nextElementSibling
+          : document.getElementById('status-hero');
+
+        var connect = form.getAttribute('data-connect');
+        if (!connect || connect.indexOf('YOUR-') === 0) {
+          event.preventDefault();
+          status.dataset.state = 'error';
+          status.textContent = 'Endpoint daftar tunggu belum dikonfigurasi.';
+          return;
+        }
+        if (!input.checkValidity()) {
+          event.preventDefault();
+          status.dataset.state = 'error';
+          status.textContent = input.value ? 'Itu sepertinya bukan alamat email.' : 'Tulis alamat emailmu dulu.';
+          input.focus();
+          return;
+        }
+        status.dataset.state = '';
+        status.textContent = 'Membuka Buttondown untuk konfirmasi…';
+        form.querySelector('button').disabled = true;
+      });
+    });
+
+    if (params.get('joined') === '1') {
+      var hero = document.getElementById('status-hero');
+      hero.dataset.state = 'ok';
+      hero.textContent = 'Kamu sudah di daftar. Cek inbox untuk konfirmasi.';
+    }
+  })();
+</script>
+</body>
+</html>
