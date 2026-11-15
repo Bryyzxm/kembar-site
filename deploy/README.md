@@ -2,7 +2,8 @@
 
 - Domain: **kembar.web.id**, PT JC Indonesia (ResellerCamp), expires 2027-11-15.
 - Host: a Cloudflare **Worker** named `kembar`, connected to `Bryyzxm/kembar-site`, serving `site/`
-  as static assets.
+  as static assets. `wrangler.toml` at the repo root is what tells the build what to deploy:
+  `name = "kembar"` and `[assets] directory = "./site"`. Without it the Workers Build fails.
 - Production URL: `kembar.bryyzxm.workers.dev`. Verified 2026-11-15: pages 200, assets 200 with
   `immutable` caching from `_headers`, security headers present, 404 correct, robots and sitemap 200.
 

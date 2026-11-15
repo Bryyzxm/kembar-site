@@ -1,0 +1,7 @@
+name = "kembar"
+compatibility_date = "2026-11-01"
+
+# The site is plain HTML and CSS. The Worker serves this folder as static
+# assets, reading _headers and _redirects from it.
+[assets]
+directory = "./site"
